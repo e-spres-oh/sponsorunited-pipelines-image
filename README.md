@@ -1,25 +1,33 @@
-# sponsorunited-pipelines-image
+# SponsorUnited Pipelines Image Builder
 SponsorUnited API BitBucket Pipelines Docker image that has all the extensions preinstalled.
 
+## Authenticate to the Container Registry
+
 Make sure you are authenticated in GitHub as described here: https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry
-##Build image
-`docker build -t e-spres-oh/sponsorunited-pipelines-image .`
 
-##Tag image
-Get the id by running `docker image ls` and look `e-spres-oh/sponsorunited-pipelines-image` and then:
+```
+export CR_PAT=YOUR_GITHUB_TOKEN
+echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+```
 
-`docker tag 6e3b93f24bd2 ghcr.io/e-spres-oh/sponsorunited-pipelines-image:1.0.0`
+## Build image
+```
+docker build -t e-spres-oh/sponsorunited-pipelines-image .
+```
 
-and
+## Tag image
+Get the IMAGE_ID by executing `docker image ls` and search for `e-spres-oh/sponsorunited-pipelines-image` and then execute:
 
-`docker tag 6e3b93f24bd2 ghcr.io/e-spres-oh/sponsorunited-pipelines-image:latest`
+```
+docker tag IMAGE_ID ghcr.io/e-spres-oh/sponsorunited-pipelines-image:X.X.X
+docker tag IMAGE_ID ghcr.io/e-spres-oh/sponsorunited-pipelines-image:latest
+```
 
-##Push image
+## Push image
 
-`docker push ghcr.io/e-spres-oh/sponsorunited-pipelines-image:1.0.0`
-
-and
-
-`docker push ghcr.io/e-spres-oh/sponsorunited-pipelines-image:latest`
+```
+docker push ghcr.io/e-spres-oh/sponsorunited-pipelines-image:X.X.X
+docker push ghcr.io/e-spres-oh/sponsorunited-pipelines-image:latest
+```
 
 Note: Run `docker image prune -a` to remove any unused and dangling images.
