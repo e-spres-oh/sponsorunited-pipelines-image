@@ -7,4 +7,5 @@ RUN apt-get -y update && \
     docker-php-ext-configure gd && \
     docker-php-ext-install -j$(nproc) gd && \
     docker-php-ext-install intl pcntl zip && \
-    docker-php-ext-install bcmath
+    docker-php-ext-install bcmath && \
+    docker-php-ext-install sockets
