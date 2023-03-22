@@ -1,4 +1,4 @@
-FROM php:8.0
+FROM php:8.1
 
 RUN apt-get -y update && \
     apt-get install -y libzip-dev libicu-dev zip libfreetype6-dev libjpeg62-turbo-dev git && \
