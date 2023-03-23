@@ -9,3 +9,5 @@ RUN apt-get -y update && \
     docker-php-ext-install intl pcntl zip && \
     docker-php-ext-install bcmath && \
     docker-php-ext-install sockets
+
+RUN pecl install redis && docker-php-ext-enable redis
